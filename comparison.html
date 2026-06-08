@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dwa wyjątkowe programy dla Waszych dzieci | Wojszycka Akademia Talentów</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3436;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2d3436 0%, #1e1e1e 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            color: #c8c8c8;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .programs-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .program-header {
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        
+        .program-header.pink {
+            background-color: #ff6b6b;
+        }
+        
+        .program-header.teal {
+            background-color: #4ecdc4;
+        }
+        
+        .program-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .program-header p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+        
+        .program-content {
+            padding: 30px;
+        }
+        
+        .program-content h3 {
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .program-content ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .program-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .program-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .program-header.pink ~ .program-content li:before {
+            color: #ff6b6b;
+        }
+        
+        .program-header.teal ~ .program-content li:before {
+            color: #4ecdc4;
+        }
+        
+        .comparison-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #2d3436;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .comparison-table thead {
+            background-color: #f0f0f0;
+        }
+        
+        .comparison-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #2d3436;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table th:nth-child(2) {
+            color: #ff6b6b;
+        }
+        
+        .comparison-table th:nth-child(3) {
+            color: #4ecdc4;
+        }
+        
+        .pricing-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #2d3436;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .pricing-card.pink {
+            border-color: #ff6b6b;
+            background-color: rgba(255, 107, 107, 0.05);
+        }
+        
+        .pricing-card.teal {
+            border-color: #4ecdc4;
+            background-color: rgba(78, 205, 196, 0.05);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .pricing-card .price {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .pricing-card.pink .price {
+            color: #ff6b6b;
+        }
+        
+        .pricing-card.teal .price {
+            color: #4ecdc4;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .pricing-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .demo-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .demo-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #2d3436;
+        }
+        
+        .demo-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .demo-card {
+            border-left: 5px solid;
+            padding: 25px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        
+        .demo-card.pink {
+            border-left-color: #ff6b6b;
+        }
+        
+        .demo-card.teal {
+            border-left-color: #4ecdc4;
+        }
+        
+        .demo-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+        
+        .demo-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .choice-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 60px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .choice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .choice-card {
+            border-radius: 10px;
+            padding: 25px;
+        }
+        
+        .choice-card.pink {
+            background-color: rgba(255, 107, 107, 0.1);
+            border: 2px solid #ff6b6b;
+        }
+        
+        .choice-card.teal {
+            background-color: rgba(78, 205, 196, 0.1);
+            border: 2px solid #4ecdc4;
+        }
+        
+        .choice-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+        
+        .choice-card h3.pink {
+            color: #ff6b6b;
+        }
+        
+        .choice-card h3.teal {
+            color: #4ecdc4;
+        }
+        
+        .choice-card ul {
+            list-style: none;
+        }
+        
+        .choice-card li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .choice-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .nav-link {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .nav-link a {
+            display: inline-block;
+            background-color: #45b7d1;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+        
+        .nav-link a:hover {
+            background-color: #3a9ab5;
+        }
+        
+        footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+        
+        .contact-info {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .contact-info strong {
+            color: #4ecdc4;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .programs-showcase,
+            .pricing-grid,
+            .demo-cards,
+            .choice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                font-size: 0.9em;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-link">
+            <a href="index.html">← Wróć do strony "Mam Moc!"</a>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <h1>Dwa wyjątkowe programy dla Waszych dzieci</h1>
+            <p>Rok szkolny 2026/2027 • Wojszycka Akademia Talentów</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Programs Showcase -->
+        <section class="programs-showcase">
+            <div class="program-card">
+                <div class="program-header pink">
+                    <h2>Mam Moc!</h2>
+                    <p>Superbohaterowie Małych Sukcesów</p>
+                </div>
+                <div class="program-content">
+                    <h3>Rozwój pewności siebie, wytrwałości i inteligencji emocjonalnej</h3>
+                    <ul>
+                        <li>Bardziej wytrwałe – nie poddają się przy trudnościach</li>
+                        <li>Pewniejsze siebie i odważniejsze w próbowaniu nowych rzeczy</li>
+                        <li>Lepsze w radzeniu sobie z emocjami i frustracją</li>
+                        <li>Szczęśliwsze i dumne ze siebie</li>
+                        <li>Silniejsze wewnętrznie i gotowe na wyzwania szkoły i życia</li>
+                    </ul>
+                    <p><strong>Metody:</strong> Autorskie bajki z pacynkami (Jeżyk, Sowa, Żabka), wcielanie się w role, unikalne piosenki, ruch i zabawa</p>
+                </div>
+            </div>
+
+            <div class="program-card">
+                <div class="program-header teal">
+                    <h2>Muzyczna Bajolandia</h2>
+                    <p>Śpiewaj, graj i baw się razem z nami</p>
+                </div>
+                <div class="program-content">
+                    <h3>Rozwój przez muzykę, rytm, śpiew i ruch</h3>
+                    <ul>
+                        <li>Rozwój mowy i słownictwa poprzez śpiew</li>
+                        <li>Poprawa koordynacji, rytmu i świadomości ciała</li>
+                        <li>Budowanie pewności siebie przez występy i wspólne muzykowanie</li>
+                        <li>Rozwój kreatywności i wyobraźni</li>
+                        <li>Wzmacnianie koncentracji i pamięci (trening dla mózgu)</li>
+                    </ul>
+                    <p><strong>Metody:</strong> Śpiew, gra na instrumentach, taniec i ruch, gry rytmiczne w ciepłej, radosnej atmosferze</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison-section">
+            <h2>Który program wybrać? – Porównanie</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Cecha</th>
+                        <th>Mam Moc!</th>
+                        <th>Muzyczna Bajolandia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Główny cel</strong></td>
+                        <td>Rozwój charakteru i kompetencji miękkich</td>
+                        <td>Rozwój przez muzykę, śpiew i rytm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Największe korzyści</strong></td>
+                        <td>Wytrwałość, pewność siebie, radzenie z emocjami</td>
+                        <td>Rozwój mowy, koordynacji, kreatywności</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metody</strong></td>
+                        <td>Bajki z pacynkami, role-playing, ruch</td>
+                        <td>Śpiew, instrumenty, taniec, rytm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dla kogo szczególnie</strong></td>
+                        <td>Dzieci potrzebujące pewności siebie i wytrwałości</td>
+                        <td>Dzieci, które lubią śpiew i muzykę</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Czas trwania</strong></td>
+                        <td>30 min / tydzień</td>
+                        <td>30 min / tydzień</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liczba dzieci</strong></td>
+                        <td>max 10</td>
+                        <td>max 10</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cena</strong></td>
+                        <td>25–33 zł / zajęcia</td>
+                        <td>120 zł / miesiąc</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Choice Section -->
+        <section class="choice-section">
+            <h2>Który program wybrać?</h2>
+            <div class="choice-grid">
+                <div class="choice-card pink">
+                    <h3 class="pink">Wybierz „Mam Moc!"</h3>
+                    <p>Jeśli zależy Wam szczególnie na:</p>
+                    <ul>
+                        <li>Rozwoju pewności siebie</li>
+                        <li>Wytrwałości i radzeniu sobie z trudnościami</li>
+                        <li>Inteligencji emocjonalnej</li>
+                        <li>Umiejętności współpracy</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>To program, który realnie zmienia sposób, w jaki dziecko podchodzi do wyzwań.</em></p>
+                </div>
+
+                <div class="choice-card teal">
+                    <h3 class="teal">Wybierz „Muzyczną Bajolandię"</h3>
+                    <p>Jeśli zależy Wam szczególnie na:</p>
+                    <ul>
+                        <li>Rozwoju mowy i słownictwa</li>
+                        <li>Koordynacji i rytmie</li>
+                        <li>Kreatywności i wyobraźni</li>
+                        <li>Radości z muzyki i wspólnego śpiewania</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>To program, który rozwija przez zabawę muzyczną.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo-section">
+            <h2>Zajęcia pokazowe</h2>
+            <div class="demo-cards">
+                <div class="demo-card pink">
+                    <h3>Zajęcia pokazowe – „Mam Moc!"</h3>
+                    <p>Chcesz zobaczyć, jak Twoje dziecko może rozkwitnąć?</p>
+                    <p><strong>Na zajęciach pokazowych dziecko będzie miało okazję:</strong></p>
+                    <ul style="list-style: none; margin-top: 10px;">
+                        <li>• Przeżyć małe sukcesy i poczuć dumę</li>
+                        <li>• Zobaczyć, jak wiele radości może dawać nauka przez zabawę</li>
+                        <li>• Poczuć, że jest ważne i doceniane</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Po zajęciach spokojnie zdecydujesz, czy chcesz kontynuować cały rok.</em></p>
+                </div>
+
+                <div class="demo-card teal">
+                    <h3>Zajęcia pokazowe – „Muzyczna Bajolandia"</h3>
+                    <p>Chcesz zobaczyć, jak muzyka może rozwijać Wasze dziecko?</p>
+                    <p><strong>Na zajęciach pokazowych dziecko będzie miało okazję:</strong></p>
+                    <ul style="list-style: none; margin-top: 10px;">
+                        <li>• Śpiewać, grać na instrumentach i tańczyć w radosnej atmosferze</li>
+                        <li>• Doświadczyć, jak muzyka pomaga w rozwoju mowy i koordynacji</li>
+                        <li>• Poczuć radość ze wspólnego muzykowania z rówieśnikami</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><em>Po zajęciach spokojnie zdecydujesz, czy chcecie kontynuować cały rok.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+            <h2>Ceny i warunki</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card pink">
+                    <h3>Mam Moc!</h3>
+                    <div class="price">25–33 zł / zajęcia</div>
+                    <ul>
+                        <li><strong>33 zł</strong> – płatność pojedyncza</li>
+                        <li><strong>30 zł</strong> – płatność miesięczna</li>
+                        <li><strong>25 zł</strong> – przy płatności z góry / w ratach</li>
+                    </ul>
+                    <h4 style="margin-top: 25px; margin-bottom: 15px;">Promocja przy zapisie do końca lipca/sierpnia:</h4>
+                    <ul>
+                        <li><strong>I rata (do 31.08)</strong> → 450 zł</li>
+                        <li><strong>II rata (do 31.12)</strong> → 450 zł</li>
+                        <li style="color: #ff6b6b; font-weight: bold; list-style: none;">Razem tylko 900 zł za cały rok (zamiast 1188 zł)</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card teal">
+                    <h3>Muzyczna Bajolandia</h3>
+                    <div class="price">120 zł / miesiąc</div>
+                    <ul>
+                        <li>✓ 4 zajęcia miesięczne (30 min)</li>
+                        <li>✓ Mała grupa (max 10 dzieci)</li>
+                        <li>✓ Wszystkie instrumenty na miejscu</li>
+                        <li>✓ Ciepła, indywidualna atmosfera</li>
+                    </ul>
+                    <p style="margin-top: 25px; font-style: italic; color: #555;">To jedna z najtańszych inwestycji w rozwój emocjonalny, społeczny i intelektualny dziecka.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section style="background: white; border-radius: 15px; padding: 40px; margin: 60px 0; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+            <h2 style="color: #2d3436; margin-bottom: 30px;">Które zajęcia najbardziej Was interesują?</h2>
+            <div style="background-color: #f9f9f9; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+                <p style="margin-bottom: 15px;"><strong>A) „Mam Moc! – Superbohaterowie Małych Sukcesów"</strong><br>Rozwój pewności siebie, wytrwałości i inteligencji emocjonalnej</p>
+                <p style="margin-bottom: 15px;"><strong>B) „Muzyczna Bajolandia"</strong><br>Śpiew, gra na instrumentach, taniec i rytm</p>
+                <p><strong>C) Trudno mi powiedzieć / chciał(a)bym zobaczyć obie opcje</strong></p>
+            </div>
+            <p style="font-size: 1.1em; color: #2d3436;">Skontaktuj się z nami, aby wybrać najlepszy program dla Twojego dziecka!</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2 style="margin-bottom: 20px;">Kontakt</h2>
+            <div class="contact-info">
+                <strong>Ilona Kalińska</strong>
+            </div>
+            <div class="contact-info">
+                📞 <strong>514 487 616</strong>
+            </div>
+            <div class="contact-info">
+                📧 <strong>koncertyjakzbajki@gmail.com</strong>
+            </div>
+            <p style="margin-top: 30px; color: #999;">Wojszycka Akademia Talentów • Rok szkolny 2026/2027</p>
+        </div>
+    </footer>
+</body>
+</html>

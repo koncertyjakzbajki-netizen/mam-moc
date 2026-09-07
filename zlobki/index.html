@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Żłobki — Policjant Nos | Muzyczna Bajolandia</title>
+  <meta name="description" content="Osobna oferta dla żłobków 1,5–3 lat: pacynki z bliska, deszcz–wiatr–słońce, flet na żywo. 30 minut na dywanie. Wrocław. Od 350 zł." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f7f0e4; --paper-2: #efe4d2; --ink: #2a221b; --ink-soft: #5c5146;
+      --muted: #7a6e62; --surface: #fffdf8; --line: #e4d5c0; --sky: #2f7cb8;
+      --tomato: #c42a6a; --tomato-fg: #fffdf8; --leaf: #2f7a5b;
+      --shadow: 0 0 0 1px rgba(42,34,27,.06), 0 1px 2px -1px rgba(42,34,27,.06), 0 2px 4px 0 rgba(42,34,27,.04);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Outfit, system-ui, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.55; }
+    h1,h2,h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; text-wrap: balance; line-height: 1.15; }
+    p { text-wrap: pretty; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1rem; }
+    @media (min-width: 640px) { .wrap { padding: 0 1.5rem; } }
+    header { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(10px); }
+    .nav { height: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: flex; align-items: center; gap: .65rem; text-decoration: none; font-family: Fraunces, serif; }
+    .brand img { width: 2.5rem; height: 2.5rem; border-radius: 999px; object-fit: cover; }
+    .brand small { display: block; font-family: Outfit, sans-serif; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .nav-links { display: none; gap: 1.2rem; font-size: .9rem; color: var(--ink-soft); }
+    .nav-links a { text-decoration: none; }
+    @media (min-width: 800px) { .nav-links { display: flex; } }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 999px; padding: .85rem 1.35rem; font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .btn-primary { background: var(--tomato); color: var(--tomato-fg); }
+    .btn-ghost { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+    .hero { padding: 2.5rem 0 3rem; }
+    .hero-grid { display: grid; gap: 2rem; align-items: center; }
+    @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.1fr .9fr; } }
+    .eyebrow { font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--tomato); }
+    .hero h1 { margin: .7rem 0 0; font-size: clamp(2rem, 1.1rem + 3.4vw, 3.5rem); letter-spacing: -.02em; }
+    .lead { margin: 1rem 0 0; font-size: 1.08rem; color: var(--ink-soft); max-width: 38rem; }
+    .cta { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: .7rem; }
+    .note { margin-top: 1rem; font-size: .85rem; color: var(--muted); }
+    .photo { border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow); background: var(--paper-2); }
+    .photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: top; }
+    .trust { border-block: 1px solid var(--line); background: var(--surface); }
+    .trust-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    @media (min-width: 800px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+    .trust-item { padding: 1.1rem 1rem; font-size: .9rem; font-weight: 500; border-right: 1px solid var(--line); }
+    .section { padding: 3.2rem 0; }
+    .ink { background: var(--ink); color: var(--paper); }
+    .surface { background: var(--surface); }
+    .paper-2 { background: var(--paper-2); }
+    .cards { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    @media (min-width: 800px) { .cards.three { grid-template-columns: repeat(3, 1fr); } .cards.two { grid-template-columns: 1fr 1fr; } }
+    .card { background: var(--surface); border-radius: 1.25rem; padding: 1.15rem; box-shadow: var(--shadow); }
+    .ink .card { background: color-mix(in srgb, #fff 10%, transparent); box-shadow: none; }
+    .kicker { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); }
+    .ink .kicker { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+    .moment { display: grid; grid-template-columns: 4.5rem 1fr; gap: .8rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .moment:last-child { border-bottom: 0; }
+    .minute { font-family: Fraunces, serif; font-size: 1.35rem; color: var(--tomato); }
+    .chars { display: grid; gap: 1rem; margin-top: 1.5rem; }
+    @media (min-width: 800px) { .chars { grid-template-columns: repeat(3, 1fr); } }
+    .char { background: var(--surface); border-radius: 1.4rem; overflow: hidden; box-shadow: var(--shadow); }
+    .char img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
+    .char div { padding: 1rem 1.1rem 1.2rem; }
+    .price-row { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; background: var(--surface); border-radius: 1rem; padding: .9rem 1rem; box-shadow: var(--shadow); }
+    form { display: grid; gap: .75rem; margin-top: 1.2rem; }
+    label { font-size: .85rem; font-weight: 600; }
+    input, select, textarea { width: 100%; border: 0; border-radius: .85rem; padding: .85rem 1rem; font: inherit; background: var(--surface); box-shadow: var(--shadow); color: var(--ink); }
+    .check { display: flex; gap: .6rem; align-items: flex-start; font-size: .85rem; color: var(--ink-soft); font-weight: 400; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0; color: var(--muted); font-size: .9rem; }
+    .ok { display: none; background: var(--leaf); color: #fff; border-radius: 1rem; padding: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <img src="https://muzyczna-bajolandia.grok.me/logo-nav.png" alt="" />
+        <span>Muzyczna Bajolandia<small>Osobna oferta dla żłobków</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#pogoda">Pogoda</a>
+        <a href="#dywan">30 minut</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#zgloszenie">Terminy</a>
+      </nav>
+      <a class="btn btn-primary" href="#zgloszenie">Zgłoszenie</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Spektakl muzyczny dla żłobków · 1,5–3 lata · Wrocław</p>
+          <h1>Maluchy rozumieją tę bajkę ciałem — deszcz, wiatr, słońce i pacynki.</h1>
+          <p class="lead">Byłam już w żłobkach. Dzieci rozumieją i podoba im się. Tupią jak deszcz, dmuchają jak wiatr, mrużą oczy do słońca, wołają kotka. Nie trzeba znać wszystkich słów. Ciocia zostaje z grupą. 30 minut, bez straszenia.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#zgloszenie">Zostaw zgłoszenie</a>
+            <a class="btn btn-ghost" href="#dywan">Jak wyglądają te 30 minut</a>
+          </div>
+          <p class="note">30 minut · pacynki i flet · od 350 zł · tel. 514 487 616</p>
+        </div>
+        <div class="photo">
+          <img src="https://muzyczna-bajolandia.grok.me/art/scena-full.jpg" alt="Prowadząca z pacynkami — tak maluchy widzą spektakl z dywanu" />
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="wrap trust-grid">
+        <div class="trust-item">Tempo żłobkowe, 30 minut</div>
+        <div class="trust-item">Deszcz, wiatr, słońce ciałem</div>
+        <div class="trust-item">Pacynki blisko dywanu</div>
+        <div class="trust-item">Niekaralność, umowa, RODO</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="kicker">Dla kierownictwa żłobków</p>
+        <h2>Najmłodsi uczą się ciałem — nie wykładem o zasadach.</h2>
+        <p class="lead">W żłobku liczy się: czy ciocia jest blisko, czy ruch można powtórzyć, czy dźwięk jest łagodny. Nie ma kazania. Jest historia, którą maluch może zagrać: tuptanie, „miau”, la-la, podanie łapek.</p>
+        <div class="cards two">
+          <div class="card">Ciocia zostaje z grupą — bajka pokazuje, że jest bazą.</div>
+          <div class="card">Pacynki z bliska. Dzieci wołają kotka i podają łapki.</div>
+          <div class="card">Po ruchu: flet poprzeczny na żywo. Sala cichnie.</div>
+          <div class="card">Grałam już w żłobkach. Dzieci rozumieją i podoba im się.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ink" id="pogoda">
+      <div class="wrap">
+        <p class="kicker">To też jest w bajce</p>
+        <h2>Trzy ruchy, które dwulatek już umie.</h2>
+        <p>Deszcz, wiatr i słońce — z głośnika i z ciała. Najmłodsi nie muszą znać wszystkich słów.</p>
+        <div class="cards three">
+          <div class="card"><p class="kicker">Deszcz</p><h3>Tupiemy</h3><p>Paluszki i stópki. Kap-kap. Maluch nie musi znać słowa „deszcz” — robi go.</p></div>
+          <div class="card"><p class="kicker">Wiatr</p><h3>Dmuchamy</h3><p>Kołyszemy się, fiu-fiu. Ciało idzie za dźwiękiem.</p></div>
+          <div class="card"><p class="kicker">Słońce</p><h3>Mrużymy oczy</h3><p>Wyciągamy buzie do ciepła. Po ruchu żłobek znów jest razem.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section paper-2" id="dywan">
+      <div class="wrap">
+        <p class="kicker">Przebieg</p>
+        <h2>30 minut na dywanie.</h2>
+        <div class="moment"><div class="minute">0–4</div><div><h3>Ciocia zostaje. Pacynki z bliska.</h3><p>Siadamy na dywanie. Ciocie zostają z grupą. Twarze widać z bliska.</p></div></div>
+        <div class="moment"><div class="minute">4–11</div><div><h3>Nos, nutki, śmiech.</h3><p>Czapka, nos, uśmiechnięta para nutek. Nikt nie zostaje z łezką w kącie.</p></div></div>
+        <div class="moment"><div class="minute">11–19</div><div><h3>Deszcz, wiatr, słońce.</h3><p>Tupiemy, dmuchamy, mrużymy oczy. Dwulatek gra pogodę ciałem.</p></div></div>
+        <div class="moment"><div class="minute">19–25</div><div><h3>Kotek: „miau, ratunku”.</h3><p>Wołamy, podajemy łapki. Jak jest trudno — wołamy ciocię.</p></div></div>
+        <div class="moment"><div class="minute">25–30</div><div><h3>Flet na żywo.</h3><p>Sala cichnie. Często „Stary niedźwiedź mocno śpi”.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="kicker">Pacynki</p>
+        <h2>Nos, strażak i kotek. Nie odpytujemy z treści.</h2>
+        <div class="chars">
+          <article class="char">
+            <img src="https://muzyczna-bajolandia.grok.me/art/nos.jpg" alt="Policjant Nos" />
+            <div><p class="kicker">Radość, bez krzyku</p><h3>Policjant Nos</h3><p>Aresztuje smutek uśmiechniętą parą nutek. Maluchy idą za czapką i nosem.</p></div>
+          </article>
+          <article class="char">
+            <img src="https://muzyczna-bajolandia.grok.me/art/strazak.jpg" alt="Strażak" />
+            <div><p class="kicker">Dorosły, który pomaga</p><h3>Strażak</h3><p>Nie krzyczy i nie puszcza syreny. Przysuwa drabinę: „kotku, podaj łapki”.</p></div>
+          </article>
+          <article class="char">
+            <img src="https://muzyczna-bajolandia.grok.me/art/kotek.jpg" alt="Kotek" />
+            <div><p class="kicker">Miau, ratunku</p><h3>Kotek</h3><p>Wskoczył za wysoko. Najmłodsi powtarzają „miau” — to ich „proszę o pomoc”.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section surface" id="oferta">
+      <div class="wrap">
+        <p class="kicker">Cennik — jeden dzień, jeden żłobek</p>
+        <h2>Na dywanie od 350 zł. Na sali 495 zł. Kolejne grupy tego dnia — taniej.</h2>
+        <p class="lead">Wrocław i okolice. Dwie małe grupy mogą oglądać razem, jeśli wszyscy widzą pacynki.</p>
+        <div class="cards" style="margin-top:1.2rem">
+          <div class="price-row"><span>Sala grupy, na dywanie<br><small>Najlepiej dla maluchów — pacynki z bliska.</small></span><strong>350 zł</strong></div>
+          <div class="price-row"><span>1 spektakl na sali<br><small>Jedna grupa albo dwie małe razem.</small></span><strong>495 zł</strong></div>
+          <div class="price-row"><span>2 spektakle tego dnia<br><small>Drugi 445 zł.</small></span><strong>940 zł</strong></div>
+          <div class="price-row"><span>3 spektakle tego dnia<br><small>Trzeci 395 zł.</small></span><strong>1335 zł</strong></div>
+        </div>
+        <p class="note">Poranki: 18 września, 9:00 albo 10:00. W tygodniu — po leżakowaniu, od 12:30. Jednego dnia — jeden żłobek.</p>
+      </div>
+    </section>
+
+    <section class="section" id="zgloszenie">
+      <div class="wrap" style="max-width:40rem">
+        <p class="kicker">Zgłoszenie</p>
+        <h2>Proszę wpisać żłobek i termin. Oddzwaniam tego samego dnia.</h2>
+        <div class="ok" id="ok">Zgłoszenie poszło. Dzwonię w ten sam dzień roboczy.</div>
+        <form id="form" action="https://formsubmit.co/ajax/koncertyjakzbajki@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Żłobek · zgłoszenie spektaklu Policjant Nos" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="oferta" value="Żłobek" />
+          <div>
+            <label for="zlobek">Żłobek</label>
+            <input id="zlobek" name="placowka" required placeholder="np. Żłobek nr 5 we Wrocławiu" />
+          </div>
+          <div>
+            <label for="miasto">Miasto</label>
+            <input id="miasto" name="miasto" required placeholder="Wrocław" />
+          </div>
+          <div>
+            <label for="dyrekcja">Kierowniczka / kierownik</label>
+            <input id="dyrekcja" name="dyrekcja" required placeholder="Imię i nazwisko" />
+          </div>
+          <div>
+            <label for="email">E-mail służbowy</label>
+            <input id="email" name="email" type="email" required placeholder="sekretariat@…" />
+          </div>
+          <div>
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="tel" required placeholder="514 000 000" />
+          </div>
+          <div>
+            <label for="termin">Proponowany dzień</label>
+            <input id="termin" name="termin" type="date" required min="2026-09-08" />
+          </div>
+          <div>
+            <label for="godzina">Godzina</label>
+            <select id="godzina" name="godzina">
+              <option>09:00 (poranek — 18 września)</option>
+              <option>10:00 (poranek — 18 września)</option>
+              <option>12:30 (po leżakowaniu, pn/śr)</option>
+              <option>13:00</option>
+              <option>13:30</option>
+              <option>14:00</option>
+              <option>14:30</option>
+              <option>15:00</option>
+            </select>
+          </div>
+          <div>
+            <label for="spektakle">Ile spektakli tego dnia?</label>
+            <select id="spektakle" name="spektakle">
+              <option>Sala grupy · 350 zł</option>
+              <option>1 spektakl · 495 zł</option>
+              <option>2 spektakle · 940 zł</option>
+              <option>3 spektakle · 1335 zł</option>
+            </select>
+          </div>
+          <div>
+            <label for="uwagi">Uwagi (dywan, liczba maluchów, wózek)</label>
+            <textarea id="uwagi" name="uwagi" rows="3"></textarea>
+          </div>
+          <label class="check">
+            <input type="checkbox" required />
+            <span>Zapoznałam się z informacją o przetwarzaniu danych. Administrator: Muzyczna Bajolandia P.S.A., NIP 8943276814.</span>
+          </label>
+          <button class="btn btn-primary" type="submit" id="send">Zostaw zgłoszenie</button>
+        </form>
+        <p class="note">Albo od razu: <a href="tel:+48514487616">514 487 616</a> · <a href="mailto:koncertyjakzbajki@gmail.com">koncertyjakzbajki@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong style="color:var(--ink);font-family:Fraunces,serif;font-size:1.15rem">Muzyczna Bajolandia P.S.A.</strong>
+      <p>Policjant Nos i Zasady Radości — osobna strona dla żłobków<br />
+      ul. Św. Mikołaja 8/11 lok. 208, 50-125 Wrocław<br />
+      KRS 0001215049 · NIP 8943276814 · REGON 543657219</p>
+      <p><a href="https://muzyczna-bajolandia.grok.me/">Oferta dla przedszkoli</a></p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("send");
+      btn.disabled = true;
+      btn.textContent = "Wysyłanie…";
+      try {
+        const res = await fetch(e.target.action, { method: "POST", body: new FormData(e.target), headers: { Accept: "application/json" } });
+        if (!res.ok) throw new Error("fail");
+        document.getElementById("ok").style.display = "block";
+        e.target.style.display = "none";
+      } catch {
+        window.location.href = "mailto:koncertyjakzbajki@gmail.com?subject=" + encodeURIComponent("Żłobek · zgłoszenie spektaklu");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Zostaw zgłoszenie";
+      }
+    });
+  </script>
+</body>
+</html>

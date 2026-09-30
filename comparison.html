@@ -17,6 +17,8 @@
         .program-header.pink { background-color: #ff6b6b; }
         .program-header.teal { background-color: #4ecdc4; }
         .program-header h2 { font-size: 2em; margin-bottom: 10px; }
+        .program-header a { color: white; text-decoration: none; }
+        .program-header a:hover { text-decoration: underline; }
         .program-content { padding: 30px; }
         .program-content h3 { margin-bottom: 15px; font-size: 1.3em; }
         .program-content ul { list-style: none; margin-bottom: 20px; }
@@ -24,14 +26,18 @@
         .program-content li:before { content: "\2713"; position: absolute; left: 0; font-weight: bold; }
         .program-header.pink ~ .program-content li:before { color: #ff6b6b; }
         .program-header.teal ~ .program-content li:before { color: #4ecdc4; }
-        .comparison-section, .pricing-section, .demo-section, .choice-section { background: white; border-radius: 15px; padding: 40px; margin: 60px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .comparison-section h2, .pricing-section h2, .demo-section h2 { text-align: center; font-size: 2em; margin-bottom: 30px; }
+        .more-link { display: inline-block; margin-top: 12px; font-weight: 700; text-decoration: none; }
+        .more-link.pink { color: #ff6b6b; }
+        .more-link.teal { color: #1a9a92; }
+        .comparison-section, .pricing-section, .choice-section { background: white; border-radius: 15px; padding: 40px; margin: 60px 0; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .comparison-section h2, .pricing-section h2 { text-align: center; font-size: 2em; margin-bottom: 30px; }
         .comparison-table { width: 100%; border-collapse: collapse; }
         .comparison-table th, .comparison-table td { padding: 15px; border-bottom: 1px solid #eee; text-align: left; }
         .comparison-table thead { background-color: #f0f0f0; }
         .comparison-table th:nth-child(2) { color: #ff6b6b; }
         .comparison-table th:nth-child(3) { color: #4ecdc4; }
-        .pricing-grid, .demo-cards, .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .comparison-table a { color: inherit; font-weight: 700; }
+        .pricing-grid, .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .pricing-card { border: 2px solid #ddd; border-radius: 10px; padding: 30px; text-align: center; }
         .pricing-card.pink { border-color: #ff6b6b; background-color: rgba(255,107,107,0.05); }
         .pricing-card.teal { border-color: #4ecdc4; background-color: rgba(78,205,196,0.05); }
@@ -40,29 +46,31 @@
         .pricing-card.teal .price { color: #4ecdc4; }
         .pricing-card ul { list-style: none; text-align: left; }
         .pricing-card li { padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
-        .demo-card { border-left: 5px solid; padding: 25px; background: #f9f9f9; border-radius: 5px; }
-        .demo-card.pink { border-left-color: #ff6b6b; }
-        .demo-card.teal { border-left-color: #4ecdc4; }
         .choice-card { border-radius: 10px; padding: 25px; }
         .choice-card.pink { background: rgba(255,107,107,0.1); border: 2px solid #ff6b6b; }
         .choice-card.teal { background: rgba(78,205,196,0.1); border: 2px solid #4ecdc4; }
         .choice-card ul { list-style: none; }
         .choice-card li { padding: 8px 0; padding-left: 25px; position: relative; }
         .choice-card li:before { content: "\2192"; position: absolute; left: 0; }
-        .nav-link { background: white; border-radius: 15px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .nav-link a { display: inline-block; background: #45b7d1; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; }
+        .nav-link { background: white; border-radius: 15px; padding: 20px; margin: 20px 0; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .nav-link a { display: inline-block; color: white; padding: 12px 22px; border-radius: 25px; text-decoration: none; font-weight: 600; }
+        .nav-link a.mam { background: #ff6b6b; }
+        .nav-link a.bajo { background: #4ecdc4; color: #163b39; }
         footer { background: #2d3436; color: white; text-align: center; padding: 40px 20px; margin-top: 80px; }
         .contact-info { font-size: 1.1em; margin: 10px 0; }
         .contact-info strong { color: #4ecdc4; }
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
-            .programs-showcase, .pricing-grid, .demo-cards, .choice-grid { grid-template-columns: 1fr; }
+            .programs-showcase, .pricing-grid, .choice-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="nav-link"><a href="index.html">← Wróć do strony "Mam Moc!"</a></div>
+        <div class="nav-link">
+            <a class="mam" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-mam-moc-superbohaterowie-malych-sukcesow-1-pdf">Pełny opis Mam Moc</a>
+            <a class="bajo" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-zaj-muzycznych-2026-2027">Pełny opis Muzycznej Bajolandii</a>
+        </div>
     </div>
     <header>
         <div class="container">
@@ -73,7 +81,10 @@
     <div class="container">
         <section class="programs-showcase">
             <div class="program-card">
-                <div class="program-header pink"><h2>Mam Moc!</h2><p>Superbohaterowie Małych Sukcesów</p></div>
+                <div class="program-header pink">
+                    <h2><a href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-mam-moc-superbohaterowie-malych-sukcesow-1-pdf">Mam Moc!</a></h2>
+                    <p>Superbohaterowie Małych Sukcesów</p>
+                </div>
                 <div class="program-content">
                     <h3>Rozwój pewności siebie, wytrwałości i inteligencji emocjonalnej</h3>
                     <ul>
@@ -84,10 +95,14 @@
                         <li>Silniejsze wewnętrznie i gotowe na wyzwania szkoły i życia</li>
                     </ul>
                     <p><strong>Metody:</strong> Bajki z pacynkami, wcielanie się w role, piosenki, ruch i zabawa</p>
+                    <a class="more-link pink" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-mam-moc-superbohaterowie-malych-sukcesow-1-pdf">Pełny opis programu →</a>
                 </div>
             </div>
             <div class="program-card">
-                <div class="program-header teal"><h2>Muzyczna Bajolandia</h2><p>Śpiewaj, graj i baw się razem z nami</p></div>
+                <div class="program-header teal">
+                    <h2><a href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-zaj-muzycznych-2026-2027">Muzyczna Bajolandia</a></h2>
+                    <p>Śpiewaj, graj i baw się razem z nami</p>
+                </div>
                 <div class="program-content">
                     <h3>Rozwój przez muzykę, rytm, śpiew i ruch</h3>
                     <ul>
@@ -98,13 +113,14 @@
                         <li>Wzmacnianie koncentracji i pamięci</li>
                     </ul>
                     <p><strong>Metody:</strong> Śpiew, instrumenty, taniec i ruch, gry rytmiczne</p>
+                    <a class="more-link teal" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-zaj-muzycznych-2026-2027">Pełny opis programu →</a>
                 </div>
             </div>
         </section>
         <section class="comparison-section">
             <h2>Który program wybrać? – Porównanie</h2>
             <table class="comparison-table">
-                <thead><tr><th>Cecha</th><th>Mam Moc!</th><th>Muzyczna Bajolandia</th></tr></thead>
+                <thead><tr><th>Cecha</th><th><a href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-mam-moc-superbohaterowie-malych-sukcesow-1-pdf">Mam Moc!</a></th><th><a href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-zaj-muzycznych-2026-2027">Muzyczna Bajolandia</a></th></tr></thead>
                 <tbody>
                     <tr><td><strong>Główny cel</strong></td><td>Rozwój charakteru i kompetencji miękkich</td><td>Rozwój przez muzykę, śpiew i rytm</td></tr>
                     <tr><td><strong>Największe korzyści</strong></td><td>Wytrwałość, pewność siebie, radzenie z emocjami</td><td>Rozwój mowy, koordynacji, kreatywności</td></tr>
@@ -128,6 +144,7 @@
                         <li>Inteligencji emocjonalnej</li>
                         <li>Umiejętności współpracy</li>
                     </ul>
+                    <a class="more-link pink" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-mam-moc-superbohaterowie-malych-sukcesow-1-pdf">Pełny opis →</a>
                 </div>
                 <div class="choice-card teal">
                     <h3 style="color:#4ecdc4">Wybierz „Muzyczną Bajolandię”</h3>
@@ -138,6 +155,7 @@
                         <li>Kreatywności i wyobraźni</li>
                         <li>Radości z muzyki i wspólnego śpiewania</li>
                     </ul>
+                    <a class="more-link teal" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-zaj-muzycznych-2026-2027">Pełny opis →</a>
                 </div>
             </div>
         </section>
@@ -153,6 +171,7 @@
                         <li>✓ Bajki z pacynkami i rytuał sukcesu</li>
                         <li>✓ Ta sama cena co Bajolandia</li>
                     </ul>
+                    <a class="more-link pink" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-mam-moc-superbohaterowie-malych-sukcesow-1-pdf">Pełny opis →</a>
                 </div>
                 <div class="pricing-card teal">
                     <h3>Muzyczna Bajolandia</h3>
@@ -163,6 +182,7 @@
                         <li>✓ Śpiew, dzwonki, bum-bum rurki</li>
                         <li>✓ Ta sama cena co Mam Moc</li>
                     </ul>
+                    <a class="more-link teal" href="https://urodzinymuzycznabajolandia.my.canva.site/oferta-zaj-muzycznych-2026-2027">Pełny opis →</a>
                 </div>
             </div>
             <p style="text-align:center;margin-top:30px;font-size:1.15em;"><strong>Oba programy: 240 zł miesięcznie.</strong> Jedna kwota, bez rabatu i bez rat.</p>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Opłata zajęć · Muzyczna Bajolandia</title>
+  <style>
+    :root { --ink:#1c1714; --paper:#f4efe6; --card:#fffdf8; --rose:#c43b6e; --line:#e4d9c8; --mute:#6b6158; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, Segoe UI, sans-serif; background: var(--paper); color: var(--ink); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 28px 18px 64px; }
+    .eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--rose); font-weight: 700; }
+    h1 { font-size: 32px; line-height: 1.15; margin: 8px 0; }
+    .lead, .hint { color: var(--mute); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px; margin-top: 14px; }
+    label { display: block; font-size: 13px; font-weight: 700; margin: 12px 0 6px; }
+    input { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 12px; font: inherit; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 12px; cursor: pointer; font-weight: 600; }
+    .pill.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .sum { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; }
+    .sum b { font-size: 32px; }
+    .pay { width: 100%; margin-top: 12px; padding: 14px; border: 0; border-radius: 14px; background: var(--rose); color: #fff; font-weight: 700; font-size: 16px; cursor: pointer; }
+    .ref { font-family: ui-monospace, monospace; background: #f3eee6; padding: 12px; border-radius: 10px; word-break: break-word; }
+    .iban { font-family: ui-monospace, monospace; font-size: 18px; letter-spacing: .03em; }
+    .ok { display: none; }
+    .ok.show { display: block; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Muzyczna Bajolandia · Wojszycka Akademia Talentów</div>
+    <h1>Opłata za zajęcia</h1>
+    <p class="lead">120 zł miesięcznie za jeden program. Oba: 240 zł. Strona układa tytuł przelewu — płatność idzie przelewem albo BLIK-iem.</p>
+
+    <div class="card">
+      <b>Konto</b>
+      <p class="iban">94 1050 1575 1000 0090 3312 6351</p>
+      <p class="hint">ING Bank Śląski · Ilona Kalińska / Muzyczna Bajolandia · NIP 8943276814</p>
+    </div>
+
+    <div class="card" id="form">
+      <label>Imię i nazwisko dziecka</label>
+      <input id="child" placeholder="np. Emilia Więckowska" />
+      <label>Grupa</label>
+      <input id="group" placeholder="np. Sówki, Biedronki, 4-latki" />
+      <label>Program</label>
+      <div class="pills" id="prog">
+        <button type="button" class="pill on" data-v="bajo">Bajolandia · 120 zł</button>
+        <button type="button" class="pill" data-v="moc">Mam Moc · 120 zł</button>
+        <button type="button" class="pill" data-v="oba">Oba · 240 zł</button>
+      </div>
+      <label>Za jaki miesiąc</label>
+      <input id="month" value="październik 2026" />
+      <div class="sum"><span class="hint" id="desc">Bajolandia · miesiąc</span><b id="total">120 zł</b></div>
+      <button class="pay" id="go" type="button">Wygeneruj tytuł przelewu</button>
+    </div>
+
+    <div class="card ok" id="ok">
+      <div class="eyebrow">Tytuł przelewu — wklej bez zmian</div>
+      <p class="ref" id="ref"></p>
+      <p>Kwota: <b id="amt"></b></p>
+      <p>Konto: <b class="iban">94 1050 1575 1000 0090 3312 6351</b></p>
+      <p class="hint">Odbiorca: Ilona Kalińska. Po wpłacie mogę wysłać fakturę — napisz na koncertyjakzbajki@gmail.com. Najpierw mogę wysłać pro formę, po zaksięgowaniu fakturę.</p>
+      <button class="pay" type="button" onclick="copyRef()">Kopiuj tytuł</button>
+    </div>
+    <p class="hint">Pytania: 514 487 616 · koncertyjakzbajki@gmail.com</p>
+  </div>
+  <script>
+    const state = { prog: "bajo" };
+    const money = () => state.prog === "oba" ? 240 : 120;
+    const nameOf = { bajo: "Bajolandia", moc: "Mam Moc", oba: "oba programy" };
+    function render() {
+      document.getElementById("total").textContent = money() + " zł";
+      document.getElementById("desc").textContent = nameOf[state.prog] + " · miesiąc";
+    }
+    document.getElementById("prog").onclick = (e) => {
+      const b = e.target.closest(".pill"); if (!b) return;
+      state.prog = b.dataset.v;
+      document.querySelectorAll("#prog .pill").forEach(x => x.classList.toggle("on", x === b));
+      render();
+    };
+    document.getElementById("go").onclick = () => {
+      const child = (document.getElementById("child").value.trim() || "dziecko");
+      const group = (document.getElementById("group").value.trim() || "grupa");
+      const month = document.getElementById("month").value.trim() || "pazdziernik 2026";
+      const code = { bajo: "BAJO", moc: "MOC", oba: "OBA" }[state.prog];
+      const ref = "MB-" + code + " / " + child + " / " + group + " / " + month;
+      document.getElementById("ref").textContent = ref;
+      document.getElementById("amt").textContent = money() + " zł";
+      document.getElementById("ok").classList.add("show");
+      document.getElementById("ok").scrollIntoView({ behavior: "smooth" });
+    };
+    function copyRef() {
+      navigator.clipboard.writeText(document.getElementById("ref").textContent);
+    }
+    render();
+  </script>
+</body>
+</html>
